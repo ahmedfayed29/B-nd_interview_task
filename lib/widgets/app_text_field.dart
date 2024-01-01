@@ -15,6 +15,7 @@ class AppTextField extends StatefulWidget {
     this.inputType = TextInputType.text,
     this.onTap,
     this.trailing,
+    this.prefix,
     this.label,
     this.maxLines = 1,
     this.borderColor = AppColors.primary,
@@ -32,7 +33,7 @@ class AppTextField extends StatefulWidget {
   final TextInputAction textInputAction;
   final TextInputType inputType;
   final VoidCallback? onTap;
-  final Widget? trailing;
+  final Widget? trailing, prefix;
   final String? label;
   final int maxLines;
   final Color borderColor;
@@ -92,12 +93,13 @@ class _AppTextFieldState extends State<AppTextField> {
                 fillColor: widget.fillColor,
                 filled: true,
                 hintStyle: TextStyle(
-                    color: AppColors.black,
-                    fontSize: AppTextStyle.header.fontSize,
-                    fontWeight: AppTextStyle.header.fontWeight,
-                    height: AppTextStyle.header.height,
+                    color: AppColors.gray,
+                    fontSize: AppTextStyle.body.fontSize,
+                    fontWeight: AppTextStyle.body.fontWeight,
+                    height: AppTextStyle.body.height,
                     fontFamily: 'lotta'),
                 suffixIcon: widget.trailing,
+                prefixIcon: widget.prefix,
                 contentPadding: EdgeInsets.symmetric(
                     horizontal: 12.width, vertical: 12.height),
                 border: widget.radius != null

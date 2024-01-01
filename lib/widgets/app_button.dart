@@ -79,7 +79,7 @@ class AppButton extends StatelessWidget {
                   title: title,
                   color: titleColor,
                   decoration: textDecoration,
-                  appTextStyle: AppTextStyle.subBody,
+                  appTextStyle: AppTextStyle.subHeader,
                 ),
                 decoration: BoxDecoration(
                   border: Border.all(color: borderColor),
@@ -113,7 +113,7 @@ class _OutlineAppButton extends AppButton {
         child: AppText(
           title: title,
           color: onTap == null ? AppColors.white : titleColor,
-          appTextStyle: AppTextStyle.subBody,
+          appTextStyle: AppTextStyle.subHeader,
         ),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(_radius),
