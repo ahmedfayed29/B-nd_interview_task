@@ -1,6 +1,9 @@
-part of '../view.dart';
+part of '../app_scaffold.dart';
 
 class _NavBar extends StatelessWidget {
+  final bool forceNav;
+
+  const _NavBar({super.key, required this.forceNav});
   @override
   Widget build(BuildContext context) {
     final cubit = NavBarCubit.of(context);
@@ -18,21 +21,22 @@ class _NavBar extends StatelessWidget {
           final isSelected = index == cubit.currentPage;
           return Expanded(
             child: InkWell(
-              onTap: () => cubit.changePage(index),
+              onTap: () => cubit.changePage(index, forceNav: forceNav),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset(
-                    e[0],
+                    isSelected ? e[0] : e[1],
                     width: 24.width,
                     height: 24.height,
                   ),
                   SizedBox(height: 4.height),
                   AppText(
-                    title: (e[1] as String),
-                    appTextStyle:
-                        isSelected ? AppTextStyle.header : AppTextStyle.header,
-                    color: AppColors.primary,
+                    title: (e[2] as String),
+                    appTextStyle: isSelected
+                        ? AppTextStyle.caption
+                        : AppTextStyle.caption,
+                    color: isSelected ? AppColors.primary : AppColors.gray,
                   ),
                 ],
               ),

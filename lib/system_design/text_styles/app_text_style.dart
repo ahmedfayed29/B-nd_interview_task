@@ -20,4 +20,5 @@ class AppTextStyle {
   static AppTextStyle get body => AppTextStyles.body;
 
   static AppTextStyle get subBody => AppTextStyles.subBody;
+  static AppTextStyle get caption => AppTextStyles.caption;
 }

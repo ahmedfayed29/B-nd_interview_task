@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
-import 'package:hr_app/features/auth/login/view.dart';
+import 'package:hr_app/features/auth/login/domain_url_view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 
@@ -21,7 +21,7 @@ class _SplashViewState extends State<SplashView> {
 
   void _navigateToHome() {
     Future.delayed(Duration(seconds: 2), () {
-      RouteUtils.navigateAndReplace(LoginView());
+      RouteUtils.navigateAndReplace(DomainUrlView());
     });
   }
 

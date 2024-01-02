@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:hr_app/core/network_utils/network_utils.dart';
 
 class AppNetworkImage extends StatelessWidget {
   final String url;
@@ -29,7 +28,7 @@ class AppNetworkImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CachedNetworkImage(
-      imageUrl: (NetworkUtils.baseUrl.replaceAll('/api/v1/', '')) + url,
+      imageUrl: url,
       width: width,
       height: height,
       imageBuilder: (context, imageProvider) => Container(

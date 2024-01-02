@@ -23,4 +23,9 @@ abstract class AppTextStyles {
         fontWeight: _AppFontWeight.semiBold.value,
         height: 1.875,
       );
+  static AppTextStyle get caption => AppTextStyle(
+        fontSize: 10,
+        fontWeight: _AppFontWeight.semiBold.value,
+        height: 1.9,
+      );
 }
