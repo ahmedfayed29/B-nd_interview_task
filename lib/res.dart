@@ -24,6 +24,8 @@ class Res {
   static const String lock = "assets/images/svg/lock.svg";
   static const String drawer = "assets/images/svg/drawer.svg";
   static const String notifications = "assets/images/svg/notifications.svg";
+  static const String notifications_on =
+      "assets/images/svg/notifications_on.svg";
   static const String home_on = "assets/images/svg/home_on.svg";
   static const String home_off = "assets/images/svg/home_off.svg";
   static const String attendance_on = "assets/images/svg/attendance_on.svg";
@@ -47,4 +49,6 @@ class Res {
   static const String select_time = "assets/images/svg/select_time.svg";
   static const String employee = "assets/images/svg/employee.svg";
   static const String select_calender = "assets/images/svg/select_calender.svg";
+  static const String settings = "assets/images/svg/settings.svg";
+  static const String logout = "assets/images/svg/logout.svg";
 }

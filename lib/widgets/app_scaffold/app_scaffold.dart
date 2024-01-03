@@ -8,6 +8,7 @@ import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/utils.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/history/view.dart';
+import 'package:hr_app/features/notifications/view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
@@ -22,16 +23,19 @@ part 'widgets/_app_bar_user.dart';
 part 'widgets/_history.dart';
 
 class AppScaffold extends StatelessWidget {
-  final bool showBack;
+  final bool showBack, showNotifications;
   final String backTitle;
   final Widget? page;
+  final Widget? floatingActionButton;
   final int? currentPage;
 
   const AppScaffold({
     super.key,
     this.showBack = false,
+    this.showNotifications = false,
     this.backTitle = '',
     this.page,
+    this.floatingActionButton,
     this.currentPage,
   });
 
@@ -45,9 +49,11 @@ class AppScaffold extends StatelessWidget {
         builder: (context, state) {
           final cubit = NavBarCubit.of(context);
           return Scaffold(
-            floatingActionButton:
-                cubit.currentPage == 1 && page == null ? _History() : null,
+            floatingActionButton: cubit.currentPage == 1 && page == null
+                ? _History()
+                : floatingActionButton,
             appBar: _AppBar(
+              showNotifications: showNotifications,
               showBack:
                   page == null && cubit.currentPage == 1 ? true : showBack,
               backTitle: page == null && cubit.currentPage == 1

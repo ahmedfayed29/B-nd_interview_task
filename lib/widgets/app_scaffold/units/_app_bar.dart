@@ -1,10 +1,14 @@
 part of '../app_scaffold.dart';
 
 class _AppBar extends StatelessWidget implements PreferredSizeWidget {
-  final bool showBack;
+  final bool showBack, showNotifications;
   final String backTitle;
 
-  const _AppBar({super.key, this.showBack = false, this.backTitle = ''});
+  const _AppBar(
+      {super.key,
+      this.showBack = false,
+      this.showNotifications = false,
+      this.backTitle = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +31,13 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
               children: [
                 Expanded(child: _AppBarUser()),
                 InkWell(
+                  onTap: showNotifications
+                      ? () {}
+                      : () => RouteUtils.navigateTo(NotificationsView()),
                   child: SvgPicture.asset(
-                    Res.notifications,
+                    showNotifications
+                        ? Res.notifications_on
+                        : Res.notifications,
                     width: 24.width,
                     height: 24.height,
                   ),

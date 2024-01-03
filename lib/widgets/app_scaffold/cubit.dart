@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/attend_and_out/view.dart';
 import 'package:hr_app/features/home/view.dart';
+import 'package:hr_app/features/profile/view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/widgets/app_scaffold/app_scaffold.dart';
 
@@ -50,7 +51,7 @@ class NavBarCubit extends Cubit<NavBarStates> {
       Res.profile_on,
       Res.profile_off,
       tr('profile'),
-      Container(),
+      ProfileView(),
     ]);
   }
 
