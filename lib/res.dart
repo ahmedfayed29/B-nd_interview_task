@@ -42,4 +42,9 @@ class Res {
   static const String attended = "assets/images/svg/attended.svg";
   static const String absent = "assets/images/svg/absent.svg";
   static const String vacancy = "assets/images/svg/vacancy.svg";
+  static const String filter = "assets/images/svg/filter.svg";
+  static const String calender = "assets/images/svg/calender.svg";
+  static const String select_time = "assets/images/svg/select_time.svg";
+  static const String employee = "assets/images/svg/employee.svg";
+  static const String select_calender = "assets/images/svg/select_calender.svg";
 }

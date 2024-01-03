@@ -15,50 +15,41 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: AppColors.white10,
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(10),
-            topLeft: Radius.circular(10),
-          )),
-      child: ListView(
-        padding:
-            EdgeInsets.symmetric(horizontal: 16.width, vertical: 16.height),
-        children: [
-          _Item(
-            title: tr('attend_and_out'),
-            image: Res.attend_and_out,
-            iconColor: AppColors.africanViolet,
-            onTap: () => NavBarCubit.of(context).changePage(1),
-          ),
-          _Item(
-            title: tr('request_vacation'),
-            image: Res.time,
-            iconColor: AppColors.richElectricBlue,
-            onTap: () {},
-          ),
-          _Item(
-            title: tr('request_advance'),
-            image: Res.money,
-            iconColor: AppColors.blueGray,
-            onTap: () {},
-          ),
-          _Item(
-            title: tr('asking_permission'),
-            image: Res.escape,
-            iconColor: AppColors.magenta,
-            onTap: () {},
-          ),
-          _Item(
-            title: tr('circulars'),
-            image: Res.paper_pin,
-            smallImage: true,
-            iconColor: AppColors.blizzardBlue,
-            onTap: () {},
-          ),
-        ],
-      ),
+    return ListView(
+      padding: EdgeInsets.symmetric(horizontal: 16.width, vertical: 16.height),
+      children: [
+        _Item(
+          title: tr('attend_and_out'),
+          image: Res.attend_and_out,
+          iconColor: AppColors.africanViolet,
+          onTap: () => NavBarCubit.of(context).changePage(1),
+        ),
+        _Item(
+          title: tr('request_vacation'),
+          image: Res.time,
+          iconColor: AppColors.richElectricBlue,
+          onTap: () {},
+        ),
+        _Item(
+          title: tr('request_advance'),
+          image: Res.money,
+          iconColor: AppColors.blueGray,
+          onTap: () {},
+        ),
+        _Item(
+          title: tr('asking_permission'),
+          image: Res.escape,
+          iconColor: AppColors.magenta,
+          onTap: () {},
+        ),
+        _Item(
+          title: tr('circulars'),
+          image: Res.paper_pin,
+          smallImage: true,
+          iconColor: AppColors.blizzardBlue,
+          onTap: () {},
+        ),
+      ],
     );
   }
 }

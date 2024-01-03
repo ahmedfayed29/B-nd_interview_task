@@ -37,7 +37,6 @@ class AppScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("page != null ${page != null}");
     return BlocProvider(
       create: (context) => NavBarCubit()
         ..addContent()
@@ -46,9 +45,24 @@ class AppScaffold extends StatelessWidget {
         builder: (context, state) {
           final cubit = NavBarCubit.of(context);
           return Scaffold(
-            floatingActionButton: cubit.currentPage == 1 ? _History() : null,
-            appBar: _AppBar(),
-            body: page ?? cubit.currentView,
+            floatingActionButton:
+                cubit.currentPage == 1 && page == null ? _History() : null,
+            appBar: _AppBar(
+              showBack:
+                  page == null && cubit.currentPage == 1 ? true : showBack,
+              backTitle: page == null && cubit.currentPage == 1
+                  ? tr('attendance')
+                  : backTitle,
+            ),
+            body: Container(
+              decoration: BoxDecoration(
+                  color: AppColors.white10,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(10),
+                    topLeft: Radius.circular(10),
+                  )),
+              child: page ?? cubit.currentView,
+            ),
             backgroundColor: AppColors.primary,
             bottomNavigationBar: _NavBar(forceNav: page != null),
           );

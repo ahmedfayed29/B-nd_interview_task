@@ -24,6 +24,7 @@ class AppTextField extends StatefulWidget {
     this.onChanged,
     this.controller,
     this.secure = false,
+    this.underlineBorder = false,
     this.radius,
   });
 
@@ -38,7 +39,7 @@ class AppTextField extends StatefulWidget {
   final int maxLines;
   final Color borderColor;
   final Color fillColor;
-  final bool secure;
+  final bool secure, underlineBorder;
   final void Function(String?)? onSaved;
   final TextEditingController? controller;
   final double? radius;
@@ -102,16 +103,27 @@ class _AppTextFieldState extends State<AppTextField> {
                 prefixIcon: widget.prefix,
                 contentPadding: EdgeInsets.symmetric(
                     horizontal: 12.width, vertical: 12.height),
-                border: widget.radius != null
-                    ? _borderRadius(widget.borderColor, radius: widget.radius)
-                    : _border(widget.borderColor),
-                enabledBorder: widget.radius != null
-                    ? _borderRadius(widget.borderColor, radius: widget.radius)
-                    : _border(widget.borderColor),
-                focusedBorder: widget.radius != null
-                    ? _borderRadius(AppColors.primary,
-                        radius: widget.radius, width: 1)
-                    : _border(AppColors.primary, width: 1),
+                border: widget.underlineBorder
+                    ? UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.blizzardBlue))
+                    : widget.radius != null
+                        ? _borderRadius(widget.borderColor,
+                            radius: widget.radius)
+                        : _border(widget.borderColor),
+                enabledBorder: widget.underlineBorder
+                    ? UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.blizzardBlue))
+                    : widget.radius != null
+                        ? _borderRadius(widget.borderColor,
+                            radius: widget.radius)
+                        : _border(widget.borderColor),
+                focusedBorder: widget.underlineBorder
+                    ? UnderlineInputBorder(
+                        borderSide: BorderSide(color: AppColors.blizzardBlue))
+                    : widget.radius != null
+                        ? _borderRadius(AppColors.primary,
+                            radius: widget.radius, width: 1)
+                        : _border(AppColors.primary, width: 1),
                 errorBorder: widget.radius != null
                     ? _borderRadius(AppColors.primary, radius: widget.radius)
                     : _border(AppColors.primary),

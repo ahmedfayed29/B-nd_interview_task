@@ -19,7 +19,7 @@ class NavBarCubit extends Cubit<NavBarStates> {
   void changePage(int? page, {bool forceNav = false}) {
     if (page != null) {
       if (forceNav) {
-        RouteUtils.navigateAndReplace(AppScaffold(
+        RouteUtils.navigateAndPopAll(AppScaffold(
           currentPage: page,
         ));
       } else {

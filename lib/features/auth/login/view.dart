@@ -45,7 +45,7 @@ class LoginView extends StatelessWidget {
                   AppButton(
                     title: tr('login'),
                     borderColor: AppColors.primary,
-                    onTap: () => RouteUtils.navigateTo(AppScaffold()),
+                    onTap: () => RouteUtils.navigateAndPopAll(AppScaffold()),
                     showArrow: true,
                     titleColor: AppColors.white,
                     color: AppColors.primary,

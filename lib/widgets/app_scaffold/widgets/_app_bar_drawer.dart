@@ -34,7 +34,13 @@ class _AppBarDrawer extends StatelessWidget {
         Visibility(
           visible: showBack,
           child: InkWell(
-            onTap: () => RouteUtils.pop(),
+            onTap: () {
+              if (Navigator.canPop(context)) {
+                RouteUtils.pop();
+              } else {
+                NavBarCubit.of(context).changePage(0);
+              }
+            },
             child: Transform(
               transform: Matrix4.rotationY(Utils.isAR ? pi : 0),
               alignment: Alignment.center,

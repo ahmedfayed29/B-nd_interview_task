@@ -19,34 +19,26 @@ class AttendAndOutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          color: AppColors.white10,
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(10),
-            topLeft: Radius.circular(10),
-          )),
-      child: BlocProvider(
-        create: (context) => AttendCubit(),
-        child: BlocBuilder<AttendCubit, AttendState>(
-          builder: (context, state) {
-            return ListView(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 16.width, vertical: 16.height),
-              children: [
-                _Options(),
-                SizedBox(
-                  height: 32.height,
-                ),
-                _FingerPrint(),
-                SizedBox(
-                  height: 24.height,
-                ),
-                _Time(),
-              ],
-            );
-          },
-        ),
+    return BlocProvider(
+      create: (context) => AttendCubit(),
+      child: BlocBuilder<AttendCubit, AttendState>(
+        builder: (context, state) {
+          return ListView(
+            padding:
+                EdgeInsets.symmetric(horizontal: 16.width, vertical: 16.height),
+            children: [
+              _Options(),
+              SizedBox(
+                height: 32.height,
+              ),
+              _FingerPrint(),
+              SizedBox(
+                height: 24.height,
+              ),
+              _Time(),
+            ],
+          );
+        },
       ),
     );
   }
