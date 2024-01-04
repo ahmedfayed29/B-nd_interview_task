@@ -51,4 +51,7 @@ class Res {
   static const String select_calender = "assets/images/svg/select_calender.svg";
   static const String settings = "assets/images/svg/settings.svg";
   static const String logout = "assets/images/svg/logout.svg";
+  static const String money_advance = "assets/images/svg/money_advance.svg";
+  static const String time_input = "assets/images/svg/time_input.svg";
+  static const String money_in = "assets/images/svg/money_in.svg";
 }

@@ -7,7 +7,7 @@ class _HistoryStatus extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8.width, vertical: 8.height),
+      padding: EdgeInsets.symmetric(horizontal: 8.width, vertical: 4.height),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: status.color,

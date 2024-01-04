@@ -7,7 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/utils.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
-import 'package:hr_app/features/history/view.dart';
+import 'package:hr_app/features/attendance_history/view.dart';
 import 'package:hr_app/features/notifications/view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
@@ -15,12 +15,12 @@ import 'package:hr_app/system_design/text_styles/app_text_style.dart';
 import 'package:hr_app/widgets/app_network_image.dart';
 import 'package:hr_app/widgets/app_scaffold/cubit.dart';
 import 'package:hr_app/widgets/app_text.dart';
+import 'package:hr_app/widgets/history_item.dart';
 
 part 'units/_app_bar.dart';
 part 'units/nav_bar.dart';
 part 'widgets/_app_bar_drawer.dart';
 part 'widgets/_app_bar_user.dart';
-part 'widgets/_history.dart';
 
 class AppScaffold extends StatelessWidget {
   final bool showBack, showNotifications;
@@ -50,7 +50,8 @@ class AppScaffold extends StatelessWidget {
           final cubit = NavBarCubit.of(context);
           return Scaffold(
             floatingActionButton: cubit.currentPage == 1 && page == null
-                ? _History()
+                ? HistoryWidget(
+                    onTap: () => RouteUtils.navigateTo(AttendanceHistory()))
                 : floatingActionButton,
             appBar: _AppBar(
               showNotifications: showNotifications,

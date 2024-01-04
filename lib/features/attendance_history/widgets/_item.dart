@@ -25,6 +25,12 @@ class _Item extends StatelessWidget {
                     SizedBox(
                       width: 6.width,
                     ),
+                    AppText(
+                      title: tr('attend') + ": " + "12:02:06",
+                      color: AppColors.blackOlive,
+                      maxLines: 1,
+                      appTextStyle: AppTextStyle.body,
+                    ),
                   ],
                 ),
                 Container(

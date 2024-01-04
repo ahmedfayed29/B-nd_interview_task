@@ -9,11 +9,15 @@ class _HistoryHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         AppText(
-            title: tr('attendance_history'),
+            title: tr('vacation_history'),
             color: AppColors.primary,
             appTextStyle: AppTextStyle.subHeader),
         InkWell(
-          onTap: () => RouteUtils.navigateTo(FilterView()),
+          onTap: () => RouteUtils.navigateTo(
+            FilterView(
+              filterStatus: FilterStatus.vacation,
+            ),
+          ),
           child: Container(
             width: 40.width,
             height: 40.height,
