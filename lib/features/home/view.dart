@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
+import 'package:hr_app/features/circulars/view.dart';
 import 'package:hr_app/features/request_advance/view.dart';
 import 'package:hr_app/features/request_permission/view.dart';
 import 'package:hr_app/features/request_vcancy/view.dart';
@@ -51,7 +52,7 @@ class HomeView extends StatelessWidget {
           image: Res.paper_pin,
           smallImage: true,
           iconColor: AppColors.blizzardBlue,
-          onTap: () {},
+          onTap: () => RouteUtils.navigateTo(Circulars()),
         ),
       ],
     );

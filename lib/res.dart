@@ -54,4 +54,6 @@ class Res {
   static const String money_advance = "assets/images/svg/money_advance.svg";
   static const String time_input = "assets/images/svg/time_input.svg";
   static const String money_in = "assets/images/svg/money_in.svg";
+  static const String attachments = "assets/images/svg/attachments.svg";
+  static const String circular_title = "assets/images/svg/circular_title.svg";
 }

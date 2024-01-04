@@ -22,4 +22,5 @@ class AppColors {
   static const Color blackOlive = Color(0xff3E3E3E);
   static const Color platinum = Color(0xffE6D5E9);
   static const Color azureishWhite = Color(0xffD1DDEF);
+  static const Color cobaltBlue = Color(0xff0241A9);
 }
