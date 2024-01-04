@@ -91,6 +91,22 @@
   "details": "التفاصيل",
   "employee_notes": "ملاحظات للموظف",
   "circular_notes": "ملاحظات التعميم",
+  "main_menu": "القائمة الرئيسية",
+  "main_info": "البيانات الاساسية",
+  "regulatory_data": "البيانات التنظيمية",
+  "email": "البريد الالكتروني",
+  "birthday": "تاريخ الميلاد",
+  "address": "العنوان",
+  "gender": "الجنس",
+  "male": "ذكر",
+  "female": "انثي",
+  "marriage_status": "الحالة الاجتماعية",
+  "department": "الادارة / القسم",
+  "job": "الوظيفة",
+  "branch": "الفرع",
+
+
+
 
 
 

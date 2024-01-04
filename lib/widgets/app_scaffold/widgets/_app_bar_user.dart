@@ -1,7 +1,15 @@
-part of '../app_scaffold.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:hr_app/core/helpers/dimensions.dart';
+import 'package:hr_app/system_design/colors/app_colors.dart';
+import 'package:hr_app/system_design/text_styles/app_text_style.dart';
+import 'package:hr_app/widgets/app_network_image.dart';
+import 'package:hr_app/widgets/app_text.dart';
 
-class _AppBarUser extends StatelessWidget {
-  const _AppBarUser();
+class AppBarUser extends StatelessWidget {
+  final Color? titleColor, companyColor, deviceColor;
+
+  const AppBarUser({this.titleColor, this.companyColor, this.deviceColor});
 
   @override
   Widget build(BuildContext context) {
@@ -36,15 +44,15 @@ class _AppBarUser extends StatelessWidget {
             children: [
               AppText(
                   title: tr('hello') + "ahmed fayed",
-                  color: AppColors.white,
+                  color: titleColor ?? AppColors.white,
                   appTextStyle: AppTextStyle.subHeader),
               AppText(
                   title: "شركة الجيل السابع",
-                  color: AppColors.white,
+                  color: companyColor ?? AppColors.white,
                   appTextStyle: AppTextStyle.body),
               AppText(
                   title: tr('device_num') + " ffcc5548ss54-461",
-                  color: AppColors.white,
+                  color: deviceColor ?? AppColors.white,
                   appTextStyle: AppTextStyle.subBody),
             ],
           ),

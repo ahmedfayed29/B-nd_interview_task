@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/enums/filter_status.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
+import 'package:hr_app/features/circular_details/view.dart';
 import 'package:hr_app/features/filter/view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
@@ -21,7 +22,7 @@ class Circulars extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      currentPage: 1,
+      currentPage: 0,
       backTitle: tr('circulars'),
       showBack: true,
       page: Padding(

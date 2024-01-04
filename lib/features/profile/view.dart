@@ -2,6 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
+import 'package:hr_app/core/route_utils/route_utils.dart';
+import 'package:hr_app/features/account/view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
@@ -23,7 +25,7 @@ class ProfileView extends StatelessWidget {
         _Item(
           title: tr('profile'),
           image: Res.profile_on,
-          onTap: () {},
+          onTap: () => RouteUtils.navigateTo(AccountView()),
           hasArrow: true,
         ),
         SizedBox(

@@ -56,4 +56,15 @@ class Res {
   static const String money_in = "assets/images/svg/money_in.svg";
   static const String attachments = "assets/images/svg/attachments.svg";
   static const String circular_title = "assets/images/svg/circular_title.svg";
+  static const String edit = "assets/images/svg/edit.svg";
+  static const String print = "assets/images/svg/print.svg";
+  static const String birthday = "assets/images/svg/birthday.svg";
+  static const String mail = "assets/images/svg/mail.svg";
+  static const String phone = "assets/images/svg/phone.svg";
+  static const String heart = "assets/images/svg/heart.svg";
+  static const String gender = "assets/images/svg/gender.svg";
+  static const String address = "assets/images/svg/address.svg";
+  static const String branch = "assets/images/svg/branch.svg";
+  static const String department = "assets/images/svg/department.svg";
+  static const String job = "assets/images/svg/job.svg";
 }

@@ -23,4 +23,5 @@ class AppColors {
   static const Color platinum = Color(0xffE6D5E9);
   static const Color azureishWhite = Color(0xffD1DDEF);
   static const Color cobaltBlue = Color(0xff0241A9);
+  static const Color gainsBoro = Color(0xffDEDEDE);
 }
