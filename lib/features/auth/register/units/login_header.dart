@@ -7,23 +7,12 @@ class _LoginHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            AppText(
-                title: tr('account_login'),
-                color: AppColors.primary,
-                appTextStyle: AppTextStyle.subHeader),
-          ],
-        ),
-        SizedBox(
-          height: 32.height,
-        ),
         Center(
-          child: Image.asset(
+          child: SvgPicture.asset(
             Res.login_header,
             width: 225.width,
             height: 225.height,
-            fit: BoxFit.cover,
+            fit: BoxFit.fill,
           ),
         ),
         SizedBox(

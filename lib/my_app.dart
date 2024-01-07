@@ -45,9 +45,9 @@ class _MyAppState extends State<MyApp> {
           home: child,
           localizationsDelegates: context.localizationDelegates,
           supportedLocales: [
-            const Locale('ar'),
+            // const Locale('ar'),
             const Locale('en'),
-            const Locale('ar')
+            // const Locale('ar')
           ],
           locale: context.locale,
         ),

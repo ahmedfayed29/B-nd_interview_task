@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "81313617209",
+    "project_id": "hr-erp-cecad",
+    "storage_bucket": "hr-erp-cecad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:81313617209:android:db0667b6635933564984e8",
+        "android_client_info": {
+          "package_name": "com.app.hr.g7.hr_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAm8tFRZZMGkgO8bPj05fehVIlrSNrluHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

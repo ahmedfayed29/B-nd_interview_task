@@ -5,4 +5,10 @@ const String image = 'https://cdn.pixabay'
 
 class Res {
   //images
+  static const String login_header = 'assets/images/png/login_header.png';
+
+//   svg
+
+  static const String view_eye = 'assets/images/svg/view_eye.svg';
+  static const String hide_eye = 'assets/images/svg/hide_eye.svg';
 }

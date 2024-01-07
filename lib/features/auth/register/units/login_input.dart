@@ -26,9 +26,11 @@ class _LoginInput extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(cubit.viewPassword
-                    ? Icons.visibility
-                    : Icons.visibility_off)
+                SvgPicture.asset(
+                  cubit.viewPassword ? Res.hide_eye : Res.view_eye,
+                  width: 24.width,
+                  height: 24.height,
+                ),
               ],
             ),
           ),
@@ -49,12 +51,7 @@ class _LoginInput extends StatelessWidget {
             AppText(
                 title: tr('remember_me'),
                 color: AppColors.primary,
-                appTextStyle: AppTextStyle.subBody),
-            Spacer(),
-            AppText(
-                title: tr('forget_password'),
-                color: AppColors.primary,
-                appTextStyle: AppTextStyle.subBody),
+                appTextStyle: AppTextStyle.subBody)
           ],
         )
       ],
