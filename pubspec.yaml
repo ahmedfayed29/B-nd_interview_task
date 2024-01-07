@@ -99,13 +99,13 @@ flutter:
   fonts:
     - family: lotta
       fonts:
-        - asset: assets/font/NotoKufiArabic-ExtraBold.ttf
+        - asset: assets/font/Montserrat-ExtraBold.ttf
           weight: 800
-        - asset: assets/font/NotoKufiArabic-Bold.ttf
-          weight: 700
-        - asset: assets/font/NotoKufiArabic-Regular.ttf
-          weight: 300
-        - asset: assets/font/NotoKufiArabic-SemiBold.ttf
+        - asset: assets/font/Montserrat-Bold.ttf
+          weight: 600
+        - asset: assets/font/Montserrat-SemiBold.ttf
           weight: 500
-        - asset: assets/font/NotoKufiArabic-Light.ttf
-          weight: 200
+        - asset: assets/font/Montserrat-Medium.ttf
+          weight: 400
+        - asset: assets/font/Montserrat-Regular.ttf
+          weight: 300

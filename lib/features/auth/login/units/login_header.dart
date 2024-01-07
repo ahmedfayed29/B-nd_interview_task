@@ -12,7 +12,7 @@ class _LoginHeader extends StatelessWidget {
             AppText(
                 title: tr('account_login'),
                 color: AppColors.primary,
-                appTextStyle: AppTextStyle.subHeader),
+                appTextStyle: AppTextStyle.displayXsBold),
           ],
         ),
         SizedBox(

@@ -59,8 +59,8 @@ class _AppTextFieldState extends State<AppTextField> {
             padding: EdgeInsets.only(bottom: 8.height),
             child: AppText(
               title: widget.label!,
-              color: AppColors.primary,
-              appTextStyle: AppTextStyle.header,
+              color: AppColors.gray,
+              appTextStyle: AppTextStyle.textMdSemiBold,
             ),
           ),
         InkWell(
@@ -93,12 +93,12 @@ class _AppTextFieldState extends State<AppTextField> {
                 hintText: widget.hint,
                 fillColor: widget.fillColor,
                 filled: true,
-                hintStyle: TextStyle(
-                    color: AppColors.gray,
-                    fontSize: AppTextStyle.body.fontSize,
-                    fontWeight: AppTextStyle.body.fontWeight,
-                    height: AppTextStyle.body.height,
-                    fontFamily: 'lotta'),
+                // hintStyle: TextStyle(
+                //     color: AppColors.gray,
+                //     fontSize: AppTextStyle.textMdSemiBold.fontSize,
+                //     fontWeight: AppTextStyle.textMdSemiBold.fontWeight,
+                //     height: AppTextStyle.textMdSemiBold.height,
+                //     fontFamily: 'lotta'),
                 suffixIcon: widget.trailing,
                 prefixIcon: widget.prefix,
                 contentPadding: EdgeInsets.symmetric(

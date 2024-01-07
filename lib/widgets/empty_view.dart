@@ -14,7 +14,7 @@ class EmptyView extends StatelessWidget {
       child: AppText(
         title: title,
         color: AppColors.primary,
-        appTextStyle: AppTextStyle.body,
+        appTextStyle: AppTextStyle.textMdSemiBold,
         textAlign: TextAlign.center,
       ),
     );

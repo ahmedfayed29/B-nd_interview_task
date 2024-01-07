@@ -49,10 +49,10 @@ class _Item extends StatelessWidget {
             SizedBox(
               width: 16.width,
             ),
-            AppText(
-                title: title,
-                color: AppColors.primary,
-                appTextStyle: AppTextStyle.header)
+            // AppText(
+            //     title: title,
+            //     color: AppColors.primary,
+            //     appTextStyle: AppTextStyle.header)
           ],
         ),
       ),

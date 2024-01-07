@@ -27,7 +27,7 @@ void showSnackBar(
       content: AppText(
         title: message,
         color: AppColors.black,
-        appTextStyle: AppTextStyle.body,
+        appTextStyle: AppTextStyle.displaySm,
       ),
       action: action ??
           SnackBarAction(

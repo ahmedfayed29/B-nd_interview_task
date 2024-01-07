@@ -6,6 +6,7 @@ import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/utils.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/auth/login/login_cubit.dart';
+import 'package:hr_app/features/auth/register/register_cubit.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
@@ -14,20 +15,20 @@ import 'package:hr_app/widgets/app_scaffold/app_scaffold.dart';
 import 'package:hr_app/widgets/app_text.dart';
 import 'package:hr_app/widgets/app_text_field.dart';
 
-part 'units/login_header.dart';
-part 'units/login_input.dart';
+part 'units/regiser_header.dart';
+part 'units/regiser_input.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocProvider(
-        create: (context) => LoginCubit(),
-        child: BlocBuilder<LoginCubit, LoginState>(
+        create: (context) => RegisterCubit(),
+        child: BlocBuilder<RegisterCubit, RegisterState>(
           builder: (context, state) {
-            final cubit = LoginCubit.of(context);
+            final cubit = RegisterCubit.of(context);
             return Container(
               width: double.infinity,
               height: double.infinity,
@@ -37,11 +38,11 @@ class LoginView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(top: 6.height + Utils.topDevicePadding),
                 children: [
-                  _LoginHeader(),
+                  _RegisterHeader(),
                   SizedBox(
                     height: 32.height,
                   ),
-                  _LoginInput(),
+                  _RegisterInput(),
                   AppButton(
                     title: tr('login'),
                     borderColor: AppColors.primary,

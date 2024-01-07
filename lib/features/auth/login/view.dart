@@ -1,11 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/utils.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/auth/login/login_cubit.dart';
+import 'package:hr_app/features/auth/register/view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
@@ -35,7 +35,7 @@ class LoginView extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16.width),
               child: ListView(
                 padding:
-                    EdgeInsets.only(top: 6.height + Utils.topDevicePadding),
+                    EdgeInsets.only(top: 30.height + Utils.topDevicePadding),
                 children: [
                   _LoginHeader(),
                   SizedBox(
@@ -49,8 +49,24 @@ class LoginView extends StatelessWidget {
                     showArrow: true,
                     titleColor: AppColors.white,
                     color: AppColors.primary,
-                    margin: EdgeInsets.only(top: 24.height),
+                    margin: EdgeInsets.symmetric(vertical: 24.height),
                   ),
+                  InkWell(
+                    onTap: () => RouteUtils.navigateTo(RegisterView()),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        AppText(
+                            title: tr("don't_have_account"),
+                            color: AppColors.gray,
+                            appTextStyle: AppTextStyle.textLgBold),
+                        AppText(
+                            title: " " + tr("register"),
+                            color: AppColors.primary,
+                            appTextStyle: AppTextStyle.textLgSemiBold),
+                      ],
+                    ),
+                  )
                 ],
               ),
               decoration: BoxDecoration(

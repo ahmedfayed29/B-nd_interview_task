@@ -21,13 +21,13 @@ class CustomModal extends StatelessWidget {
         navigationBar: CupertinoNavigationBar(
           leading: AppText(
             title: title,
-            appTextStyle: AppTextStyle.subBody,
+            appTextStyle: AppTextStyle.textMdSemiBold,
             color: AppColors.primary,
           ),
           middle: AppText(
             title: title,
             color: AppColors.white,
-            appTextStyle: AppTextStyle.subBody,
+            appTextStyle: AppTextStyle.textMdSemiBold,
           ),
           trailing: IconButton(
             icon: Icon(
@@ -87,7 +87,7 @@ class DownBottomSheet {
                   child: AppText(
                     title: data[position].name,
                     color: AppColors.black,
-                    appTextStyle: AppTextStyle.header,
+                    appTextStyle: AppTextStyle.textMdSemiBold,
                   ),
                 ),
               );

@@ -33,7 +33,7 @@ class AppText extends StatelessWidget {
       style: TextStyle(
         color: color,
         fontSize: appTextStyle.fontSize,
-        height: appTextStyle.height,
+        height: appTextStyle.fontSize / appTextStyle.height,
         decoration: decoration ?? TextDecoration.none,
         fontWeight: appTextStyle.fontWeight,
         fontFamily: fontFamily ?? 'lotta',

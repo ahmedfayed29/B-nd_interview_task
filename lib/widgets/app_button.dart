@@ -85,7 +85,7 @@ class AppButton extends StatelessWidget {
                       title: title,
                       color: titleColor,
                       decoration: textDecoration,
-                      appTextStyle: AppTextStyle.subHeader,
+                      appTextStyle: AppTextStyle.textLgSemiBold,
                     ),
                     Visibility(
                       visible: showArrow,
@@ -139,7 +139,7 @@ class _OutlineAppButton extends AppButton {
         child: AppText(
           title: title,
           color: onTap == null ? AppColors.white : titleColor,
-          appTextStyle: AppTextStyle.subHeader,
+          appTextStyle: AppTextStyle.textLgSemiBold,
         ),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(_radius),

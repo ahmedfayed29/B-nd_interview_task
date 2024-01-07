@@ -1,7 +1,7 @@
 part of '../view.dart';
 
-class _LoginInput extends StatelessWidget {
-  const _LoginInput({super.key});
+class _RegisterInput extends StatelessWidget {
+  const _RegisterInput({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class _LoginInput extends StatelessWidget {
             AppText(
                 title: tr('remember_me'),
                 color: AppColors.primary,
-                appTextStyle: AppTextStyle.subBody)
+                appTextStyle: AppTextStyle.textMdSemiBold)
           ],
         )
       ],

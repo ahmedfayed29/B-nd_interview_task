@@ -34,8 +34,8 @@ class _NavBar extends StatelessWidget {
                   AppText(
                     title: (e[2] as String),
                     appTextStyle: isSelected
-                        ? AppTextStyle.caption
-                        : AppTextStyle.caption,
+                        ? AppTextStyle.textMdSemiBold
+                        : AppTextStyle.textMdSemiBold,
                     color: isSelected ? AppColors.primary : AppColors.gray,
                   ),
                 ],

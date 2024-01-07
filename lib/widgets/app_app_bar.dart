@@ -41,7 +41,7 @@ class AppAppBar extends StatelessWidget implements PreferredSizeWidget {
         title: AppText(
           title: title ?? '',
           color: AppColors.black,
-          appTextStyle: AppTextStyle.header,
+          appTextStyle: AppTextStyle.textMdSemiBold,
         ),
         actions: actions,
       ),

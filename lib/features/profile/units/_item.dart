@@ -31,11 +31,11 @@ class _Item extends StatelessWidget {
               height: 24.height,
             ),
             SizedBox(width: 8.width),
-            AppText(
-              title: title,
-              color: AppColors.blackOlive,
-              appTextStyle: AppTextStyle.body,
-            ),
+            // AppText(
+            //   title: title,
+            //   color: AppColors.blackOlive,
+            //   appTextStyle: AppTextStyle.body,
+            // ),
             Spacer(),
             Visibility(
                 visible: hasArrow,

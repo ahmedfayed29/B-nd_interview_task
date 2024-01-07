@@ -11,12 +11,12 @@ class _LoginInput extends StatelessWidget {
         AppTextField(
           fillColor: AppColors.textFieldBG.withOpacity(.03),
           borderColor: AppColors.textFieldBG.withOpacity(.03),
-          hint: tr('email'),
+          label: tr('email'),
           controller: cubit.email,
           inputType: TextInputType.emailAddress,
         ),
         SizedBox(
-          height: 24.height,
+          height: 16.height,
         ),
         AppTextField(
           fillColor: AppColors.textFieldBG.withOpacity(.03),
@@ -33,7 +33,7 @@ class _LoginInput extends StatelessWidget {
             ),
           ),
           secure: cubit.viewPassword,
-          hint: tr('password'),
+          label: tr('password'),
           controller: cubit.password,
           inputType: TextInputType.phone,
         ),
@@ -48,13 +48,13 @@ class _LoginInput extends StatelessWidget {
                 onChanged: (val) => cubit.changeTerms()),
             AppText(
                 title: tr('remember_me'),
-                color: AppColors.primary,
-                appTextStyle: AppTextStyle.subBody),
+                color: AppColors.gray,
+                appTextStyle: AppTextStyle.textMdSemiBold),
             Spacer(),
             AppText(
                 title: tr('forget_password'),
-                color: AppColors.primary,
-                appTextStyle: AppTextStyle.subBody),
+                color: AppColors.gray,
+                appTextStyle: AppTextStyle.textMdSemiBold),
           ],
         )
       ],

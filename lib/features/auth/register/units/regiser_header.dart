@@ -1,7 +1,7 @@
 part of '../view.dart';
 
-class _LoginHeader extends StatelessWidget {
-  const _LoginHeader({super.key});
+class _RegisterHeader extends StatelessWidget {
+  const _RegisterHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
