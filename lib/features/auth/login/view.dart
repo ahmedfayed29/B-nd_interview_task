@@ -55,10 +55,10 @@ class LoginView extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 color: AppColors.white,
-                image: DecorationImage(
-                  image: AssetImage(Res.background),
-                  fit: BoxFit.fill,
-                ),
+                // image: DecorationImage(
+                //   image: AssetImage(Res.background),
+                //   fit: BoxFit.fill,
+                // ),
               ),
             );
           },

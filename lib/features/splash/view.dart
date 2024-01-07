@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
-import 'package:hr_app/features/auth/login/domain_url_view.dart';
-import 'package:hr_app/res.dart';
+import 'package:hr_app/features/auth/login/view.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 
 class SplashView extends StatefulWidget {
@@ -21,7 +20,7 @@ class _SplashViewState extends State<SplashView> {
 
   void _navigateToHome() {
     Future.delayed(Duration(seconds: 2), () {
-      RouteUtils.navigateAndReplace(DomainUrlView());
+      RouteUtils.navigateAndReplace(LoginView());
     });
   }
 
@@ -36,29 +35,29 @@ class _SplashViewState extends State<SplashView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              Res.people,
-              fit: BoxFit.fill,
-              height: 140.height,
-              width: 120.width,
-            ),
+            // Image.asset(
+            //   Res.people,
+            //   fit: BoxFit.fill,
+            //   height: 140.height,
+            //   width: 120.width,
+            // ),
             SizedBox(
               height: 16.height,
             ),
-            Image.asset(
-              Res.logo,
-              width: 184.width,
-              height: 190.height,
-              fit: BoxFit.fill,
-            ),
+            // Image.asset(
+            //   Res.logo,
+            //   width: 184.width,
+            //   height: 190.height,
+            //   fit: BoxFit.fill,
+            // ),
           ],
         ),
         decoration: BoxDecoration(
           color: AppColors.white,
-          image: DecorationImage(
-            image: AssetImage(Res.background),
-            fit: BoxFit.fill,
-          ),
+          // image: DecorationImage(
+          //   image: AssetImage(Res.background),
+          //   fit: BoxFit.fill,
+          // ),
         ),
       ),
     );

@@ -2,10 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
-import 'package:hr_app/features/attend_and_out/view.dart';
 import 'package:hr_app/features/home/view.dart';
 import 'package:hr_app/features/profile/view.dart';
-import 'package:hr_app/res.dart';
 import 'package:hr_app/widgets/app_scaffold/app_scaffold.dart';
 
 part 'states.dart';
@@ -33,23 +31,23 @@ class NavBarCubit extends Cubit<NavBarStates> {
   void addContent() {
     content.add(
       [
-        Res.home_on,
-        Res.home_off,
+        // Res.home_on,
+        // Res.home_off,
         tr('home'),
         HomeView(),
       ],
     );
     content.add(
       [
-        Res.attendance_on,
-        Res.attendance_off,
+        // Res.attendance_on,
+        // Res.attendance_off,
         tr('attendance'),
-        AttendAndOutView(),
+        Container(),
       ],
     );
     content.add([
-      Res.profile_on,
-      Res.profile_off,
+      // Res.profile_on,
+      // Res.profile_off,
       tr('profile'),
       ProfileView(),
     ]);

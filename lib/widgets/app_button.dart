@@ -1,10 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/utils.dart';
-import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
 import 'package:hr_app/widgets/app_text.dart';
@@ -100,11 +98,11 @@ class AppButton extends StatelessWidget {
                       child: Transform(
                         transform: Matrix4.rotationY(Utils.isAR ? pi : 0),
                         alignment: Alignment.center,
-                        child: SvgPicture.asset(
-                          Res.arrow_next,
-                          width: 24.width,
-                          height: 24.height,
-                        ),
+                        // child: SvgPicture.asset(
+                        //   Res.arrow_next,
+                        //   width: 24.width,
+                        //   height: 24.height,
+                        // ),
                       ),
                     ),
                   ],

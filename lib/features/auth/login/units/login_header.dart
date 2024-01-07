@@ -19,14 +19,14 @@ class _LoginHeader extends StatelessWidget {
         SizedBox(
           height: 8.height,
         ),
-        Center(
-          child: Image.asset(
-            Res.logo,
-            width: 184.width,
-            height: 190.height,
-            fit: BoxFit.fill,
-          ),
-        ),
+        // Center(
+        //   child: Image.asset(
+        //     Res.logo,
+        //     width: 184.width,
+        //     height: 190.height,
+        //     fit: BoxFit.fill,
+        //   ),
+        // ),
         SizedBox(
           height: 24.height,
         ),
