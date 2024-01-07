@@ -6,9 +6,23 @@ const String image = 'https://cdn.pixabay'
 class Res {
   //images
   static const String login_header = 'assets/images/png/login_header.png';
+  static const String add = 'assets/images/png/add.png';
+  static const String user_image = 'assets/images/png/user_image.png';
+  static const String facebook = 'assets/images/png/facebook.png';
+  static const String linkedin = 'assets/images/png/linkedin.png';
+  static const String twitter = 'assets/images/png/twitter.png';
+  static const String user_on = 'assets/images/png/user_on.png';
+  static const String user_off = 'assets/images/png/user_off.png';
+  static const String countries_on = 'assets/images/png/countries_on.png';
+  static const String countries_off = 'assets/images/png/countries_off.png';
+  static const String service_on = 'assets/images/png/service_on.png';
+  static const String service_off = 'assets/images/png/service_off.png';
 
 //   svg
 
   static const String view_eye = 'assets/images/svg/view_eye.svg';
   static const String hide_eye = 'assets/images/svg/hide_eye.svg';
+  static const String min = 'assets/images/svg/min.svg';
+  static const String plus = 'assets/images/svg/plus.svg';
+  static const String birthdate = 'assets/images/svg/birthdate.svg';
 }

@@ -1,9 +1,13 @@
+import 'dart:async';
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_app/core/helpers/utils.dart';
+import 'package:hr_app/core/route_utils/route_utils.dart';
+import 'package:hr_app/widgets/date_time_picker.dart';
 
 part 'register_state.dart';
 
@@ -12,8 +16,15 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   static RegisterCubit of(context) => BlocProvider.of(context);
 
+  final TextEditingController firstName = TextEditingController();
+  final TextEditingController lastName = TextEditingController();
   final TextEditingController email = TextEditingController();
   final TextEditingController password = TextEditingController();
+  final TextEditingController confirmPassword = TextEditingController();
+  final TextEditingController about = TextEditingController();
+  final TextEditingController birthdate = TextEditingController();
+  final TextEditingController skills = TextEditingController();
+  int currentStep = 1;
   bool facebook = false, twitter = false, linkedIn = false;
   bool viewPassword = false;
   bool viewConfirmPassword = false;
@@ -21,6 +32,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   int gender = 0;
   int userType = 1;
   File? image;
+  Timer? timer;
+  DateTime? date;
 
   void changeGender({required int value}) {
     gender = value;
@@ -75,5 +88,24 @@ class RegisterCubit extends Cubit<RegisterState> {
       image = newImage;
       emit(RegisterInitial(changed: !state.changed));
     }
+  }
+
+  Future<void> selectDate() async {
+    final date = await datePicker(
+        initDate: DateTime(1999),
+        lastDate: DateTime.now().subtract(Duration(days: 1460)),
+        context: RouteUtils.context,
+        dateController: TextEditingController());
+    if (date != null) {
+      birthdate.text = DateFormat("yyyy-MM-dd", "en").format(date);
+      this.date = date;
+
+      emit(RegisterInitial(changed: !state.changed));
+    }
+  }
+
+  void changeCurrentStep({required int step}) {
+    currentStep = step;
+    emit(RegisterInitial(changed: !state.changed));
   }
 }

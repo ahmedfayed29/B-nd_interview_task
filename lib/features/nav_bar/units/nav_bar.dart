@@ -1,4 +1,4 @@
-part of '../app_scaffold.dart';
+part of '../view.dart';
 
 class _NavBar extends StatelessWidget {
   final bool forceNav;
@@ -25,7 +25,7 @@ class _NavBar extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
+                  Image.asset(
                     isSelected ? e[0] : e[1],
                     width: 24.width,
                     height: 24.height,

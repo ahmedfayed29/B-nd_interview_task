@@ -11,7 +11,7 @@ class _LoginHeader extends StatelessWidget {
           children: [
             AppText(
                 title: tr('account_login'),
-                color: AppColors.primary,
+                color: AppColors.black,
                 appTextStyle: AppTextStyle.displayXsBold),
           ],
         ),

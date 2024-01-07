@@ -6,11 +6,11 @@ import 'package:hr_app/core/helpers/utils.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/auth/login/login_cubit.dart';
 import 'package:hr_app/features/auth/register/view.dart';
+import 'package:hr_app/features/nav_bar/view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
 import 'package:hr_app/widgets/app_button.dart';
-import 'package:hr_app/widgets/app_scaffold/app_scaffold.dart';
 import 'package:hr_app/widgets/app_text.dart';
 import 'package:hr_app/widgets/app_text_field.dart';
 
@@ -28,54 +28,44 @@ class LoginView extends StatelessWidget {
         child: BlocBuilder<LoginCubit, LoginState>(
           builder: (context, state) {
             final cubit = LoginCubit.of(context);
-            return Container(
-              width: double.infinity,
-              height: double.infinity,
-              alignment: Alignment.center,
-              padding: EdgeInsets.symmetric(horizontal: 16.width),
-              child: ListView(
-                padding:
-                    EdgeInsets.only(top: 30.height + Utils.topDevicePadding),
-                children: [
-                  _LoginHeader(),
-                  SizedBox(
-                    height: 32.height,
+            return ListView(
+              padding: EdgeInsets.only(
+                  left: 16.width,
+                  right: 16.width,
+                  bottom: 32.height,
+                  top: 20 + Utils.topDevicePadding),
+              children: [
+                _LoginHeader(),
+                SizedBox(
+                  height: 32.height,
+                ),
+                _LoginInput(),
+                AppButton(
+                  title: tr('login'),
+                  borderColor: AppColors.primary,
+                  onTap: () => RouteUtils.navigateAndPopAll(NavBarView()),
+                  showArrow: true,
+                  titleColor: AppColors.white,
+                  color: AppColors.primary,
+                  margin: EdgeInsets.symmetric(vertical: 24.height),
+                ),
+                InkWell(
+                  onTap: () => RouteUtils.navigateTo(RegisterView()),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      AppText(
+                          title: tr("don't_have_account"),
+                          color: AppColors.gray,
+                          appTextStyle: AppTextStyle.textLgBold),
+                      AppText(
+                          title: " " + tr("register"),
+                          color: AppColors.primary,
+                          appTextStyle: AppTextStyle.textLgSemiBold),
+                    ],
                   ),
-                  _LoginInput(),
-                  AppButton(
-                    title: tr('login'),
-                    borderColor: AppColors.primary,
-                    onTap: () => RouteUtils.navigateAndPopAll(AppScaffold()),
-                    showArrow: true,
-                    titleColor: AppColors.white,
-                    color: AppColors.primary,
-                    margin: EdgeInsets.symmetric(vertical: 24.height),
-                  ),
-                  InkWell(
-                    onTap: () => RouteUtils.navigateTo(RegisterView()),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AppText(
-                            title: tr("don't_have_account"),
-                            color: AppColors.gray,
-                            appTextStyle: AppTextStyle.textLgBold),
-                        AppText(
-                            title: " " + tr("register"),
-                            color: AppColors.primary,
-                            appTextStyle: AppTextStyle.textLgSemiBold),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              decoration: BoxDecoration(
-                color: AppColors.white,
-                // image: DecorationImage(
-                //   image: AssetImage(Res.background),
-                //   fit: BoxFit.fill,
-                // ),
-              ),
+                )
+              ],
             );
           },
         ),

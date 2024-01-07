@@ -5,16 +5,33 @@ class _RegisterHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = RegisterCubit.of(context);
     return Column(
       children: [
-        Center(
-          child: SvgPicture.asset(
-            Res.login_header,
-            width: 225.width,
-            height: 225.height,
-            fit: BoxFit.fill,
+        InkWell(
+          onTap: () {
+            cubit.changeCurrentStep(step: 1);
+            RouteUtils.pop();
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Icon(
+                Icons.arrow_back_ios,
+                size: 20,
+              ),
+              AppText(
+                  title: tr('register'),
+                  color: AppColors.black,
+                  appTextStyle: AppTextStyle.displayXsBold),
+            ],
           ),
         ),
+        SizedBox(
+          height: 32.height,
+        ),
+        _RegisterStepper(),
         SizedBox(
           height: 20.height,
         ),

@@ -1,10 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/home/view.dart';
 import 'package:hr_app/features/profile/view.dart';
-import 'package:hr_app/widgets/app_scaffold/app_scaffold.dart';
+import 'package:hr_app/res.dart';
 
 part 'states.dart';
 
@@ -17,38 +16,32 @@ class NavBarCubit extends Cubit<NavBarStates> {
 
   void changePage(int? page, {bool forceNav = false}) {
     if (page != null) {
-      if (forceNav) {
-        RouteUtils.navigateAndPopAll(AppScaffold(
-          currentPage: page,
-        ));
-      } else {
-        currentPage = page;
-        _emit(NavBarInit());
-      }
+      currentPage = page;
+      _emit(NavBarInit());
     }
   }
 
   void addContent() {
     content.add(
       [
-        // Res.home_on,
-        // Res.home_off,
-        tr('home'),
+        Res.user_on,
+        Res.user_off,
+        tr('who_am_i'),
         HomeView(),
       ],
     );
     content.add(
       [
-        // Res.attendance_on,
-        // Res.attendance_off,
-        tr('attendance'),
+        Res.countries_on,
+        Res.countries_off,
+        tr('countries'),
         Container(),
       ],
     );
     content.add([
-      // Res.profile_on,
-      // Res.profile_off,
-      tr('profile'),
+      Res.service_on,
+      Res.service_off,
+      tr('services'),
       ProfileView(),
     ]);
   }

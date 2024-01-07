@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/utils.dart';
+import 'package:hr_app/features/nav_bar/cubit.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
-import 'package:hr_app/widgets/app_scaffold/cubit.dart';
 import 'package:hr_app/widgets/app_text.dart';
 
 part 'units/nav_bar.dart';
 
-class AppScaffold extends StatelessWidget {
+class NavBarView extends StatelessWidget {
   final bool showBack, showNotifications;
   final String backTitle;
   final Widget? page, floatingActionButton, header;
   final int? currentPage;
 
-  const AppScaffold({
+  const NavBarView({
     super.key,
     this.showBack = false,
     this.showNotifications = false,
@@ -37,16 +36,25 @@ class AppScaffold extends StatelessWidget {
         builder: (context, state) {
           final cubit = NavBarCubit.of(context);
           return Scaffold(
-            body: Container(
-              decoration: BoxDecoration(
-                  color: AppColors.white10,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    topLeft: Radius.circular(10),
-                  )),
-              child: page ?? cubit.currentView,
+            appBar: PreferredSize(
+              preferredSize: Size.fromHeight(80),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.width),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    AppText(
+                      title: cubit.currentTitle,
+                      color: AppColors.black,
+                      appTextStyle: AppTextStyle.displayXsBold,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            backgroundColor: AppColors.primary,
+            body: cubit.currentView,
+            backgroundColor: AppColors.white,
             bottomNavigationBar: _NavBar(forceNav: page != null),
           );
         },

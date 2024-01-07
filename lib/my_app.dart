@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
           BlocProvider<UserCubit>(create: (_) => UserCubit()),
         ],
         child: MaterialApp(
-          title: 'Hr app',
+          title: 'Kafil',
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             useMaterial3: false,
