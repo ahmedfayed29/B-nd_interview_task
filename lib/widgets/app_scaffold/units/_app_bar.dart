@@ -36,9 +36,6 @@ class _AppBar extends StatelessWidget implements PreferredSizeWidget {
                   children: [
                     Expanded(child: AppBarUser()),
                     InkWell(
-                      onTap: showNotifications
-                          ? () {}
-                          : () => RouteUtils.navigateTo(NotificationsView()),
                       child: SvgPicture.asset(
                         showNotifications
                             ? Res.notifications_on
