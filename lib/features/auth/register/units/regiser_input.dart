@@ -17,6 +17,7 @@ class _RegisterInput extends StatelessWidget {
                 label: tr('first_name'),
                 controller: cubit.firstName,
                 inputType: TextInputType.name,
+                validator: (val) => Validator.name(val),
               ),
             ),
             SizedBox(
@@ -29,6 +30,7 @@ class _RegisterInput extends StatelessWidget {
                 label: tr('last_name'),
                 controller: cubit.lastName,
                 inputType: TextInputType.name,
+                validator: (val) => Validator.name(val),
               ),
             )
           ],
@@ -42,6 +44,7 @@ class _RegisterInput extends StatelessWidget {
           label: tr('email'),
           controller: cubit.email,
           inputType: TextInputType.emailAddress,
+          validator: (val) => Validator.email(val),
         ),
         SizedBox(
           height: 16.height,
@@ -60,10 +63,11 @@ class _RegisterInput extends StatelessWidget {
               ],
             ),
           ),
-          secure: cubit.viewPassword,
+          secure: !cubit.viewPassword,
           label: tr('password'),
           controller: cubit.password,
           inputType: TextInputType.phone,
+          validator: (val) => Validator.password(val),
         ),
         SizedBox(
           height: 16.height,
@@ -82,10 +86,12 @@ class _RegisterInput extends StatelessWidget {
               ],
             ),
           ),
-          secure: cubit.viewConfirmPassword,
+          secure: !cubit.viewConfirmPassword,
           label: tr('confirm_password'),
-          controller: cubit.password,
+          controller: cubit.confirmPassword,
           inputType: TextInputType.phone,
+          validator: (val) => Validator.passwordConfirmation(
+              password: cubit.password.text, value: val),
         ),
         SizedBox(
           height: 16.height,

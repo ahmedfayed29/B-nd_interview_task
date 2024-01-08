@@ -6,6 +6,8 @@ class _UserType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = RegisterCubit.of(context);
+    final List<TagModel> user =
+        context.read<DependenciesCubit>().state.dependenciesModel.data.types;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -13,27 +15,18 @@ class _UserType extends StatelessWidget {
             title: tr('user_type'),
             color: AppColors.gray500,
             appTextStyle: AppTextStyle.textMdSemiBold),
-        Row(
-          children: [
-            radioItem(
-              title: tr('seller'),
-              value: 1,
-              group: cubit.userType,
-              onTap: () => cubit.changeUserType(value: 1),
-            ),
-            radioItem(
-              title: tr('buyer'),
-              value: 2,
-              group: cubit.userType,
-              onTap: () => cubit.changeUserType(value: 2),
-            ),
-            radioItem(
-              title: tr('both'),
-              value: 3,
-              group: cubit.userType,
-              onTap: () => cubit.changeUserType(value: 3),
-            ),
-          ],
+        SingleChildScrollView(
+          child: Row(
+            children: List.generate(
+                user.length,
+                (index) => radioItem(
+                      title: user[index].label,
+                      value: user[index].value,
+                      group: cubit.userType,
+                      onTap: () =>
+                          cubit.changeUserType(value: user[index].value),
+                    )),
+          ),
         )
       ],
     );

@@ -11,3 +11,10 @@ class ServiceInitial extends ServiceState {
   @override
   List<Object> get props => [changed];
 }
+
+class ServiceLoading extends ServiceState {
+  ServiceLoading({required super.changed});
+
+  @override
+  List<Object> get props => [changed];
+}

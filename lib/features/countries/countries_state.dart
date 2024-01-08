@@ -11,3 +11,17 @@ class CountriesInitial extends CountriesState {
   @override
   List<Object> get props => [changed];
 }
+
+class CountriesLoading extends CountriesState {
+  CountriesLoading({required super.changed});
+
+  @override
+  List<Object> get props => [changed];
+}
+
+class CountriesLoadingTable extends CountriesState {
+  CountriesLoadingTable({required super.changed});
+
+  @override
+  List<Object> get props => [changed];
+}

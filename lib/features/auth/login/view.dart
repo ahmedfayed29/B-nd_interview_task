@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/utils.dart';
+import 'package:hr_app/core/helpers/validator.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/auth/login/login_cubit.dart';
 import 'package:hr_app/features/auth/register/view.dart';
-import 'package:hr_app/features/nav_bar/view.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
@@ -43,7 +43,7 @@ class LoginView extends StatelessWidget {
                 AppButton(
                   title: tr('login'),
                   borderColor: AppColors.primary,
-                  onTap: () => RouteUtils.navigateAndPopAll(NavBarView()),
+                  onTap: () => cubit.login(),
                   showArrow: true,
                   titleColor: AppColors.white,
                   color: AppColors.primary,

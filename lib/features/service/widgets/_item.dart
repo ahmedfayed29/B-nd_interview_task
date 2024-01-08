@@ -1,7 +1,8 @@
 part of '../view.dart';
 
 class _Item extends StatelessWidget {
-  const _Item({super.key});
+  final ServiceModel service;
+  const _Item({super.key, required this.service});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class _Item extends StatelessWidget {
       child: Column(
         children: [
           AppNetworkImage(
-            url: image,
+            url: service.mainImage,
             width: 151.width,
             height: 103.height,
             borderRadius: 8,
@@ -33,7 +34,7 @@ class _Item extends StatelessWidget {
                       margin: EdgeInsets.symmetric(
                           horizontal: 6.width, vertical: 6.height),
                       child: AppText(
-                          title: '\$100',
+                          title: '\$${service.price}',
                           color: AppColors.white,
                           appTextStyle: AppTextStyle.textMdSemiBold),
                       decoration: BoxDecoration(
@@ -50,7 +51,7 @@ class _Item extends StatelessWidget {
             height: 8.height,
           ),
           AppText(
-              title: 'Logo Design -Graphic Design Graphic Design',
+              title: service.title,
               color: AppColors.black,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
@@ -72,7 +73,7 @@ class _Item extends StatelessWidget {
                 width: 4.width,
               ),
               AppText(
-                  title: '(4.5)',
+                  title: '(${service.averageRating})',
                   color: AppColors.warning,
                   textAlign: TextAlign.center,
                   appTextStyle: AppTextStyle.textMdSemiBold),
@@ -91,7 +92,7 @@ class _Item extends StatelessWidget {
                 width: 4.width,
               ),
               AppText(
-                  title: '(4.5)',
+                  title: '${service.completedSalesCount}',
                   color: AppColors.gray600,
                   textAlign: TextAlign.center,
                   appTextStyle: AppTextStyle.textMdRegular),

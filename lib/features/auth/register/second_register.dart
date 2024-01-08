@@ -2,6 +2,7 @@ part of 'view.dart';
 
 class SecondRegister extends StatelessWidget {
   final RegisterCubit cubit;
+
   const SecondRegister({super.key, required this.cubit});
 
   @override
@@ -23,11 +24,11 @@ class SecondRegister extends StatelessWidget {
                 SizedBox(
                   height: 32.height,
                 ),
-                _RegisterSecInput(),
+                Form(key: cubit.formKey2, child: _RegisterSecInput()),
                 AppButton(
                   title: tr('submit'),
                   borderColor: AppColors.primary,
-                  onTap: () => RouteUtils.navigateAndPopAll(NavBarView()),
+                  onTap: () => cubit.register(),
                   showArrow: true,
                   titleColor: AppColors.white,
                   color: AppColors.primary,

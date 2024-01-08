@@ -4,8 +4,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:hr_app/core/bloc_providers/dependencies/dependencies_cubit.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/helpers/utils.dart';
+import 'package:hr_app/core/helpers/validator.dart';
+import 'package:hr_app/core/models/dependencies_model.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/auth/register/register_cubit.dart';
 import 'package:hr_app/features/nav_bar/view.dart';
@@ -15,6 +19,7 @@ import 'package:hr_app/system_design/text_styles/app_text_style.dart';
 import 'package:hr_app/widgets/app_button.dart';
 import 'package:hr_app/widgets/app_text.dart';
 import 'package:hr_app/widgets/app_text_field.dart';
+import 'package:hr_app/widgets/drop_down_sheet.dart';
 
 part 'second_register.dart';
 part 'units/favourite_social_media.dart';
@@ -23,6 +28,7 @@ part 'units/regiser_header.dart';
 part 'units/regiser_input.dart';
 part 'units/register_sec_input.dart';
 part 'units/salary.dart';
+part 'units/skills.dart';
 part 'units/user_type.dart';
 part 'widgets/register_stepper.dart';
 part 'widgets/user_image.dart';
@@ -49,7 +55,7 @@ class RegisterView extends StatelessWidget {
                 SizedBox(
                   height: 32.height,
                 ),
-                _RegisterInput(),
+                Form(key: cubit.formKey, child: _RegisterInput()),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -57,10 +63,16 @@ class RegisterView extends StatelessWidget {
                       title: tr('next'),
                       borderColor: AppColors.primary,
                       onTap: () {
-                        cubit.changeCurrentStep(step: 2);
-                        RouteUtils.navigateTo(SecondRegister(
-                          cubit: cubit,
-                        ));
+                        if (cubit.formKey.currentState!.validate()) {
+                          if (cubit.userType == 0) {
+                            Fluttertoast.showToast(msg: tr('select_user_type'));
+                            return;
+                          }
+                          cubit.changeCurrentStep(step: 2);
+                          RouteUtils.navigateTo(SecondRegister(
+                            cubit: cubit,
+                          ));
+                        }
                       },
                       showArrow: true,
                       titleColor: AppColors.white,

@@ -10,8 +10,8 @@ class _PopularServices extends StatelessWidget {
       height: 200.height,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemBuilder: (_, index) => _Item(),
-        itemCount: 10,
+        itemBuilder: (_, index) => _Item(service: cubit.services[index]),
+        itemCount: cubit.services.length,
         separatorBuilder: (_, index) => SizedBox(
           width: 8.width,
         ),

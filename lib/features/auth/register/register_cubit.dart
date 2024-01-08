@@ -5,8 +5,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hr_app/core/data_sources/auth/auth_data_source.dart';
 import 'package:hr_app/core/helpers/utils.dart';
+import 'package:hr_app/core/models/dependencies_model.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
+import 'package:hr_app/features/auth/login/view.dart';
 import 'package:hr_app/widgets/date_time_picker.dart';
 
 part 'register_state.dart';
@@ -16,6 +19,8 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   static RegisterCubit of(context) => BlocProvider.of(context);
 
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey2 = GlobalKey<FormState>();
   final TextEditingController firstName = TextEditingController();
   final TextEditingController lastName = TextEditingController();
   final TextEditingController email = TextEditingController();
@@ -30,10 +35,11 @@ class RegisterCubit extends Cubit<RegisterState> {
   bool viewConfirmPassword = false;
   int salary = 100;
   int gender = 0;
-  int userType = 1;
+  int userType = 0;
   File? image;
   Timer? timer;
   DateTime? date;
+  List<TagModel> skillsList = [];
 
   void changeGender({required int value}) {
     gender = value;
@@ -106,6 +112,47 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   void changeCurrentStep({required int step}) {
     currentStep = step;
+    emit(RegisterInitial(changed: !state.changed));
+  }
+
+  Future<void> register() async {
+    if (formKey2.currentState!.validate()) {
+      final List<String> socialList = [];
+      final List<int> tags = [];
+      if (facebook) socialList.add("facebook");
+      if (twitter) socialList.add("x");
+      if (linkedIn) socialList.add("linkedIn");
+      skillsList.forEach((element) {
+        tags.add(element.value);
+      });
+      final res = await AuthDataSource.register(
+          firstName: firstName.text,
+          lastName: lastName.text,
+          about: about.text,
+          salary: salary.toString(),
+          gender: gender.toString(),
+          type: userType.toString(),
+          email: email.text,
+          birthDate: birthdate.text,
+          password: password.text,
+          confirmPassword: confirmPassword.text,
+          social: socialList,
+          image: image,
+          tags: tags);
+      if (res) {
+        RouteUtils.navigateAndPopAll(LoginView());
+      }
+    }
+  }
+
+  void addTag(TagModel tagModel) {
+    if (!skillsList.contains(tagModel)) skillsList.add(tagModel);
+    RouteUtils.pop();
+    emit(RegisterInitial(changed: !state.changed));
+  }
+
+  void removeTag(int index) {
+    skillsList.removeAt(index);
     emit(RegisterInitial(changed: !state.changed));
   }
 }

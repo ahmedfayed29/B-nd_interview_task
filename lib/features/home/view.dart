@@ -23,7 +23,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context) => HomeCubit()..getProfile(),
       child: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, state) {
           return ListView(

@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hr_app/core/bloc_providers/dependencies/dependencies_cubit.dart';
 import 'package:hr_app/core/bloc_providers/user_cubit/user_cubit.dart';
 import 'package:hr_app/features/splash/view.dart';
 
@@ -26,6 +27,10 @@ class _MyAppState extends State<MyApp> {
       builder: (_, child) => MultiBlocProvider(
         providers: [
           BlocProvider<UserCubit>(create: (_) => UserCubit()),
+          BlocProvider<DependenciesCubit>(
+            create: (_) => DependenciesCubit()..init(),
+            lazy: false,
+          )
         ],
         child: MaterialApp(
           title: 'Kafil',

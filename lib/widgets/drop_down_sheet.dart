@@ -85,7 +85,7 @@ class DownBottomSheet {
                               color: AppColors.white.withOpacity(.5),
                               width: 1))),
                   child: AppText(
-                    title: data[position].name,
+                    title: data[position].label,
                     color: AppColors.black,
                     appTextStyle: AppTextStyle.textMdSemiBold,
                   ),

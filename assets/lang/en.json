@@ -34,6 +34,22 @@
   "services": "Services",
   "country": "Country",
   "capital": "Capital",
-  "popular_services": "Popular Services"
+  "popular_services": "Popular Services",
+  "select_gender": "Select gender",
+  "password_must_be_at_least_8_char": "Password must be at least 8 characters",
+  "select_user_type": "Select user type",
+
+
+  "fill_field": "Please fill fields",
+  "write_name": "Please insert name",
+  "write_correct_name": "Insert correct name",
+  "write_password": "Please insert password",
+  "password_must_be_more_5_fields": "Password must be more than 6 fields",
+  "write_email": "Please insert email",
+  "write_correct_email": "Please insert correct email",
+  "write_phone": "Please insert phone",
+  "write_correct_phone": "Please insert correct phone",
+  "please_confirm_password": "Please insert password",
+  "password_dose_not_match": "Password doesn't match each other"
 
 }

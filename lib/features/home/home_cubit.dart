@@ -1,8 +1,10 @@
 import 'dart:io';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hr_app/core/data_sources/auth/auth_data_source.dart';
 
 part 'home_state.dart';
 
@@ -26,4 +28,17 @@ class HomeCubit extends Cubit<HomeState> {
   int gender = 0;
   int userType = 1;
   File? image;
+
+  Future<void> getProfile() async {
+    final res = await AuthDataSource.getProfile();
+    if (res != null) {
+      firstName.text = res.data.firstName;
+      lastName.text = res.data.lastName;
+      email.text = res.data.email;
+      about.text = res.data.about;
+      birthdate.text = res.data.birthDate.toString();
+      salary.text = res.data.salary.toString() + tr("sar");
+      // skills.text=res.data.tags.toString();
+    }
+  }
 }

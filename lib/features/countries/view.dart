@@ -6,6 +6,7 @@ import 'package:hr_app/features/countries/countries_cubit.dart';
 import 'package:hr_app/res.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 import 'package:hr_app/system_design/text_styles/app_text_style.dart';
+import 'package:hr_app/widgets/app_loading_indicator.dart';
 import 'package:hr_app/widgets/app_text.dart';
 import 'package:number_paginator/number_paginator.dart';
 
@@ -20,9 +21,14 @@ class CountriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CountriesCubit(),
+      create: (context) => CountriesCubit()..getCountries(),
       child: BlocBuilder<CountriesCubit, CountriesState>(
         builder: (context, state) {
+          if (state is CountriesLoading) {
+            return Center(
+              child: AppLoadingIndicator(),
+            );
+          }
           return Padding(
             padding:
                 EdgeInsets.symmetric(horizontal: 16.width, vertical: 16.height),

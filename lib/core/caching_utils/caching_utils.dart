@@ -46,7 +46,7 @@ class CachingUtils {
       user = UserModel.fromJson(value);
     } else {
       value["token"] =
-          RouteUtils.context.read<UserCubit>().state.userModel!.tokenId;
+          RouteUtils.context.read<UserCubit>().state.userModel!.accessToken;
       user = UserModel.fromJson(value);
     }
     RouteUtils.context.read<UserCubit>().updateUser(user);
@@ -82,6 +82,6 @@ class CachingUtils {
   }
 
   static String? get token {
-    return user?.tokenId;
+    return user?.accessToken;
   }
 }

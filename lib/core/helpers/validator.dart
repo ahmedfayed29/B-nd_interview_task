@@ -28,9 +28,18 @@ class Validator {
 
   static String? name(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return tr("write_name");
-    } else if (value.length < 2 || value.length > 30) {
-      return tr("write_correct_name");
+      return "insert your name";
+    } else if (value.length < 2 || value.length > 50) {
+      return 'insert correct name ';
+    }
+    return null;
+  }
+
+  static String? about(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return "insert your info";
+    } else if (value.trim().length < 10 || value.trim().length > 1000) {
+      return 'insert correct info ';
     }
     return null;
   }
@@ -38,8 +47,8 @@ class Validator {
   static String? password(String? value) {
     if (value == null || value.trim().isEmpty) {
       return tr("write_password");
-    } else if (value.length < 6) {
-      return tr("password_must_be_at_least_6_char");
+    } else if (value.length < 7) {
+      return tr("password_must_be_at_least_8_char");
     }
     return null;
   }

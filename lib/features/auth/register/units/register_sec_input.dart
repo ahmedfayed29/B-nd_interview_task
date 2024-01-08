@@ -19,6 +19,7 @@ class _RegisterSecInput extends StatelessWidget {
           controller: cubit.about,
           inputType: TextInputType.multiline,
           maxLines: 3,
+          validator: (val) => Validator.about(val),
         ),
         SizedBox(
           height: 16.height,
@@ -44,11 +45,16 @@ class _RegisterSecInput extends StatelessWidget {
           onTap: () => cubit.selectDate(),
           controller: cubit.birthdate,
           inputType: TextInputType.name,
+          validator: (val) => Validator.empty(val),
         ),
         SizedBox(
           height: 16.height,
         ),
         _Gender(),
+        SizedBox(
+          height: 16.height,
+        ),
+        _Skills(),
         SizedBox(
           height: 16.height,
         ),

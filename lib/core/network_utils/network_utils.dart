@@ -1,16 +1,15 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hr_app/core/route_utils/route_utils.dart';
 
 import '../caching_utils/caching_utils.dart';
 
 class NetworkUtils {
-  static final String _baseUrl = "http://207.38.87.126:2323/api/v1/";
+  static final String _baseUrl = "https://test.kafiil.com/api/test/";
 
   static late Dio _dio;
+
   static String get baseUrl => _baseUrl;
 
   static Future<void> init() async {
@@ -19,22 +18,21 @@ class NetworkUtils {
   }
 
   static Map<String, dynamic>? header = {
-    "deviceType": Platform.isAndroid ? "Android" : "Ios",
-    "Language": RouteUtils.context.locale.languageCode,
+    "Accept-Language": Platform.isAndroid ? "Android" : "Ios",
+    "Accept": "application/json",
+    "Language": "en",
     // 'Authorization': "Bearer " + (CachingUtils.token ?? ''),
-    'TokenId': (CachingUtils.token ?? ''),
   };
 
   static Future<Response<dynamic>> get(String path,
       {Map<String, dynamic>? headers}) async {
-    if (header?['TokenId'] == '') {
-      header?['TokenId'] = (CachingUtils.token ?? '');
-    }
+    _dio.options.headers.clear();
+
     _dio.options.headers = header;
-    print("headers ${_dio.options.headers}");
     if (headers != null) {
       _dio.options.headers.addAll(headers);
     }
+    print("headers ${_dio.options.headers}");
 
     final res = await _dio.get(path);
     handleErrors(res: res);
@@ -45,15 +43,16 @@ class NetworkUtils {
       {Map<String, dynamic>? data,
       var formData,
       Map<String, dynamic>? headers}) async {
-    if (header?['TokenId'] == '') {
-      header?['TokenId'] = (CachingUtils.token ?? '');
-    }
+    _dio.options.headers.clear();
+    print("path is $path");
+
+    print("asdasd ${(!path.contains("login") && !path.contains("register"))}");
+    print("headers ${header}");
     _dio.options.headers = header;
     if (headers != null) {
       _dio.options.headers.addAll(headers);
     }
 
-    print("headers ${header}");
     print("data $data");
     final res = await _dio.post(path, data: formData ?? data);
     handleErrors(res: res);
@@ -62,8 +61,9 @@ class NetworkUtils {
 
   static Future<Response<dynamic>> patch(String path,
       {data, FormData? formData, Map<String, dynamic>? headers}) async {
-    if (header?['TokenId'] == '') {
-      header?['TokenId'] = (CachingUtils.token ?? '');
+    if (header?['Authorization'] == null &&
+        (!path.contains("login") || !path.contains("register"))) {
+      header?['Authorization'] = "Bearer " + (CachingUtils.token ?? '');
     }
     _dio.options.headers = header;
 
@@ -81,8 +81,9 @@ class NetworkUtils {
       {Map<String, dynamic>? data,
       FormData? formData,
       Map<String, dynamic>? headers}) async {
-    if (header?['TokenId'] == '') {
-      header?['TokenId'] = (CachingUtils.token ?? '');
+    if (header?['Authorization'] == null &&
+        (!path.contains("login") || !path.contains("register"))) {
+      header?['Authorization'] = "Bearer " + (CachingUtils.token ?? '');
     }
     _dio.options.headers = header;
 
@@ -98,6 +99,7 @@ class NetworkUtils {
 
   static void handleErrors({required Response<dynamic> res}) {
     if (res.statusCode != 200) {
+      print("res isss ${res.data}");
       final String error = res.data["errors"]
           .fold(
               '',
