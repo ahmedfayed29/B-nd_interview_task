@@ -17,6 +17,10 @@ class Res {
   static const String countries_off = 'assets/images/png/countries_off.png';
   static const String service_on = 'assets/images/png/service_on.png';
   static const String service_off = 'assets/images/png/service_off.png';
+  static const String next = 'assets/images/png/next.png';
+  static const String next_last = 'assets/images/png/next_last.png';
+  static const String prev = 'assets/images/png/prev.png';
+  static const String prev_first = 'assets/images/png/prev_first.png';
 
 //   svg
 
@@ -25,4 +29,6 @@ class Res {
   static const String min = 'assets/images/svg/min.svg';
   static const String plus = 'assets/images/svg/plus.svg';
   static const String birthdate = 'assets/images/svg/birthdate.svg';
+  static const String cart = 'assets/images/svg/cart.svg';
+  static const String star = 'assets/images/svg/star.svg';
 }

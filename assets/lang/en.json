@@ -30,7 +30,10 @@
   "submit": "Submit",
   "sar": "SAR",
   "who_am_i": "Who Am I",
-  "counties": "Counties",
-  "services": "Services"
+  "countries": "Countries",
+  "services": "Services",
+  "country": "Country",
+  "capital": "Capital",
+  "popular_services": "Popular Services"
 
 }
