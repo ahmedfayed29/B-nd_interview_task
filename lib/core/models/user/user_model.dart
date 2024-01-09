@@ -39,7 +39,7 @@ class Data {
   String email;
   DateTime birthDate;
   int gender;
-  TagModel type;
+  Type type;
   String avatar;
 
   Data({
@@ -70,7 +70,7 @@ class Data {
         email: json["email"],
         birthDate: DateTime.parse(json["birth_date"]),
         gender: json["gender"],
-        type: TagModel.fromJson(json["type"]),
+        type: Type.fromJson(json["type"]),
         avatar: json["avatar"],
       );
 
@@ -89,5 +89,49 @@ class Data {
         "gender": gender,
         "type": type.toJson(),
         "avatar": avatar,
+      };
+}
+
+class Tag {
+  int id;
+  String name;
+
+  Tag({
+    required this.id,
+    required this.name,
+  });
+
+  factory Tag.fromJson(Map<String, dynamic> json) => Tag(
+        id: json["id"],
+        name: json["name"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "name": name,
+      };
+}
+
+class Type {
+  int code;
+  String name;
+  String niceName;
+
+  Type({
+    required this.code,
+    required this.name,
+    required this.niceName,
+  });
+
+  factory Type.fromJson(Map<String, dynamic> json) => Type(
+        code: json["code"],
+        name: json["name"],
+        niceName: json["nice_name"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "code": code,
+        "name": name,
+        "nice_name": niceName,
       };
 }

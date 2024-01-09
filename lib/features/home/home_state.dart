@@ -11,3 +11,10 @@ class HomeInitial extends HomeState {
   @override
   List<Object> get props => [changed];
 }
+
+class HomeLoading extends HomeState {
+  HomeLoading({required super.changed});
+
+  @override
+  List<Object> get props => [changed];
+}

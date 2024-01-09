@@ -5,11 +5,13 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hr_app/core/data_sources/auth/auth_data_source.dart';
 import 'package:hr_app/core/helpers/utils.dart';
 import 'package:hr_app/core/models/dependencies_model.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/auth/login/view.dart';
+import 'package:hr_app/widgets/app_loader_dialog.dart';
 import 'package:hr_app/widgets/date_time_picker.dart';
 
 part 'register_state.dart';
@@ -117,6 +119,10 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   Future<void> register() async {
     if (formKey2.currentState!.validate()) {
+      if (image == null) {
+        Fluttertoast.showToast(msg: tr('insert_profile_avatar'));
+        return;
+      }
       final List<String> socialList = [];
       final List<int> tags = [];
       if (facebook) socialList.add("facebook");
@@ -125,22 +131,28 @@ class RegisterCubit extends Cubit<RegisterState> {
       skillsList.forEach((element) {
         tags.add(element.value);
       });
-      final res = await AuthDataSource.register(
-          firstName: firstName.text,
-          lastName: lastName.text,
-          about: about.text,
-          salary: salary.toString(),
-          gender: gender.toString(),
-          type: userType.toString(),
-          email: email.text,
-          birthDate: birthdate.text,
-          password: password.text,
-          confirmPassword: confirmPassword.text,
-          social: socialList,
-          image: image,
-          tags: tags);
-      if (res) {
-        RouteUtils.navigateAndPopAll(LoginView());
+      showLoadingDialog(RouteUtils.context);
+      try {
+        final res = await AuthDataSource.register(
+            firstName: firstName.text,
+            lastName: lastName.text,
+            about: about.text,
+            salary: salary.toString(),
+            gender: gender.toString(),
+            type: userType.toString(),
+            email: email.text,
+            birthDate: birthdate.text,
+            password: password.text,
+            confirmPassword: confirmPassword.text,
+            social: socialList,
+            image: image,
+            tags: tags);
+        RouteUtils.pop();
+        if (res) {
+          RouteUtils.navigateAndPopAll(LoginView());
+        }
+      } catch (e) {
+        RouteUtils.pop();
       }
     }
   }

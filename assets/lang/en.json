@@ -50,6 +50,7 @@
   "write_phone": "Please insert phone",
   "write_correct_phone": "Please insert correct phone",
   "please_confirm_password": "Please insert password",
-  "password_dose_not_match": "Password doesn't match each other"
+  "password_dose_not_match": "Password doesn't match each other",
+  "insert_profile_avatar": "Insert profile avatar"
 
 }

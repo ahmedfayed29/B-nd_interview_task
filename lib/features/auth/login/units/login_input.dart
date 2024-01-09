@@ -47,7 +47,7 @@ class _LoginInput extends StatelessWidget {
           Row(
             children: [
               Checkbox(
-                  value: cubit.acceptTerms,
+                  value: cubit.rememberMe,
                   activeColor: AppColors.primary,
                   onChanged: (val) => cubit.changeTerms()),
               AppText(

@@ -6,6 +6,8 @@ class _UserType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final cubit = HomeCubit.of(context);
+    final List<TagModel> user =
+        context.read<DependenciesCubit>().state.dependenciesModel.data.types;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -13,24 +15,16 @@ class _UserType extends StatelessWidget {
             title: tr('user_type'),
             color: AppColors.gray500,
             appTextStyle: AppTextStyle.textMdSemiBold),
-        Row(
-          children: [
-            radioItem(
-              title: tr('seller'),
-              value: 1,
-              group: cubit.userType,
-            ),
-            radioItem(
-              title: tr('buyer'),
-              value: 2,
-              group: cubit.userType,
-            ),
-            radioItem(
-              title: tr('both'),
-              value: 3,
-              group: cubit.userType,
-            ),
-          ],
+        SingleChildScrollView(
+          child: Row(
+            children: List.generate(
+                user.length,
+                (index) => radioItem(
+                      title: user[index].label,
+                      value: user[index].value,
+                      group: cubit.userType,
+                    )),
+          ),
         )
       ],
     );
@@ -40,18 +34,20 @@ class _UserType extends StatelessWidget {
     required String title,
     required int value,
     required int group,
-  }) =>
-      Row(
-        children: [
-          Radio(
-              value: value,
-              activeColor: AppColors.primary,
-              groupValue: group,
-              onChanged: (val) => null),
-          AppText(
-              title: title,
-              color: AppColors.black,
-              appTextStyle: AppTextStyle.textLgSemiBold),
-        ],
-      );
+  }) {
+    print("value is $value group is $group");
+    return Row(
+      children: [
+        Radio(
+            value: value,
+            activeColor: AppColors.primary,
+            groupValue: group,
+            onChanged: (val) => null),
+        AppText(
+            title: title,
+            color: AppColors.black,
+            appTextStyle: AppTextStyle.textLgSemiBold),
+      ],
+    );
+  }
 }

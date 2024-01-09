@@ -57,10 +57,10 @@ class AuthDataSource {
       return false;
   }
 
-  static Future<bool> login({
-    required String email,
-    required String password,
-  }) async {
+  static Future<bool> login(
+      {required String email,
+      required String password,
+      required bool remember}) async {
     final body = {
       "password": password,
       "email": email,
@@ -73,7 +73,10 @@ class AuthDataSource {
     );
     if (res.statusCode == 200) {
       print("res is ${res.data}");
-      CachingUtils.cacheUser(res.data);
+      if (remember)
+        CachingUtils.cacheUser(res.data);
+      else
+        CachingUtils.saveUser(user: UserModel.fromJson(res.data));
       return true;
     } else
       return false;

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hr_app/core/bloc_providers/user_cubit/user_cubit.dart';
+import 'package:hr_app/core/caching_utils/caching_utils.dart';
 import 'package:hr_app/core/helpers/dimensions.dart';
 import 'package:hr_app/core/route_utils/route_utils.dart';
 import 'package:hr_app/features/auth/login/view.dart';
+import 'package:hr_app/features/nav_bar/view.dart';
 import 'package:hr_app/system_design/colors/app_colors.dart';
 
 class SplashView extends StatefulWidget {
@@ -20,8 +24,18 @@ class _SplashViewState extends State<SplashView> {
 
   void _navigateToHome() {
     Future.delayed(Duration(seconds: 2), () {
-      RouteUtils.navigateAndReplace(LoginView());
+      checkUser();
     });
+  }
+
+  Future<void> checkUser() async {
+    final isLogged = CachingUtils.user != null;
+    if (isLogged) {
+      context.read<UserCubit>().updateUser(CachingUtils.user!);
+      RouteUtils.navigateAndReplace(NavBarView());
+    } else {
+      RouteUtils.navigateAndReplace(LoginView());
+    }
   }
 
   @override
