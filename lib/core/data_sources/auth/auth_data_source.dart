@@ -73,21 +73,21 @@ class AuthDataSource {
     );
     if (res.statusCode == 200) {
       print("res is ${res.data}");
-      if (remember)
-        CachingUtils.cacheUser(res.data);
-      else
-        CachingUtils.saveUser(user: UserModel.fromJson(res.data));
+
+      CachingUtils.cacheUser(res.data, saveUser: remember);
+
       return true;
     } else
       return false;
   }
 
   static Future<UserModel?> getProfile() async {
+    print("Asdads ${CachingUtils.token}");
     final res = await NetworkUtils.get("user/who-am-i",
-        headers: {'Authorization': "Bearer " + (CachingUtils.token ?? '')});
+        headers: {'Authorization': (CachingUtils.token ?? '')});
     if (res.statusCode == 200) {
       print("res is ${res.data}");
-      CachingUtils.cacheUser(res.data);
+      CachingUtils.cacheUser(res.data, updateToken: false);
       return UserModel.fromJson(res.data);
     } else
       return null;

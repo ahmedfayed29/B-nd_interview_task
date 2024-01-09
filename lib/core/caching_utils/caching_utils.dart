@@ -15,6 +15,7 @@ import '../network_utils/network_utils.dart';
 class CachingUtils {
   static const String _cachingUserKey = 'logged_user';
   static const String _cachingIntro = 'intro_data';
+  static const String _saveLogin = 'saveLogin';
 
   static late SharedPreferences _sharedPreferences;
 
@@ -40,12 +41,12 @@ class CachingUtils {
   }
 
   static Future<void> cacheUser(Map<String, dynamic> value,
-      {bool updateToken = true}) async {
+      {bool updateToken = true, bool saveUser = false}) async {
     late UserModel user;
     if (updateToken) {
       user = UserModel.fromJson(value);
     } else {
-      value["token"] =
+      value["access_token"] =
           RouteUtils.context.read<UserCubit>().state.userModel!.accessToken;
       user = UserModel.fromJson(value);
     }
@@ -53,6 +54,7 @@ class CachingUtils {
     await _sharedPreferences.remove(_cachingUserKey);
     await _sharedPreferences.setString(
         _cachingUserKey, json.encode(user.toJson()));
+    await _sharedPreferences.setBool(_saveLogin, saveUser);
   }
 
   static Future<void> clearCache() async {
