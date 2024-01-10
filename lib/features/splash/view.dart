@@ -29,7 +29,8 @@ class _SplashViewState extends State<SplashView> {
   }
 
   Future<void> checkUser() async {
-    final isLogged = CachingUtils.user != null;
+    final isLogged =
+        CachingUtils.user != null && (await CachingUtils.isRemember);
     if (isLogged) {
       context.read<UserCubit>().updateUser(CachingUtils.user!);
       RouteUtils.navigateAndReplace(NavBarView());

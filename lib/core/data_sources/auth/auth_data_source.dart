@@ -36,7 +36,7 @@ class AuthDataSource {
       "type": type,
       "password_confirmation": confirmPassword,
     };
-    for (int i = 0; i < social.length - 1; i++) {
+    for (int i = 0; i < (social.length > 2 ? 2 : social.length); i++) {
       body["favorite_social_media[$i]"] =
           social[i] == "linkedin" ? "instagram" : social[i];
     }
@@ -87,7 +87,8 @@ class AuthDataSource {
         headers: {'Authorization': (CachingUtils.token ?? '')});
     if (res.statusCode == 200) {
       print("res is ${res.data}");
-      CachingUtils.cacheUser(res.data, updateToken: false);
+      CachingUtils.cacheUser(res.data,
+          updateToken: false, saveUser: (await CachingUtils.isRemember));
       return UserModel.fromJson(res.data);
     } else
       return null;

@@ -30,16 +30,19 @@ class _LoginInput extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(cubit.viewPassword
-                      ? Icons.visibility
-                      : Icons.visibility_off)
+                  Icon(
+                    cubit.viewPassword
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: AppColors.primary,
+                  )
                 ],
               ),
             ),
             secure: !cubit.viewPassword,
             label: tr('password'),
             controller: cubit.password,
-            inputType: TextInputType.phone,
+            inputType: TextInputType.text,
           ),
           SizedBox(
             height: 16.height,

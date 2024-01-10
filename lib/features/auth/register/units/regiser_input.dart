@@ -57,16 +57,17 @@ class _RegisterInput extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(cubit.viewPassword
-                    ? Icons.visibility
-                    : Icons.visibility_off)
+                Icon(
+                  cubit.viewPassword ? Icons.visibility : Icons.visibility_off,
+                  color: AppColors.primary,
+                )
               ],
             ),
           ),
           secure: !cubit.viewPassword,
           label: tr('password'),
           controller: cubit.password,
-          inputType: TextInputType.phone,
+          inputType: TextInputType.text,
           validator: (val) => Validator.password(val),
         ),
         SizedBox(
@@ -80,16 +81,18 @@ class _RegisterInput extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(cubit.viewConfirmPassword
-                    ? Icons.visibility
-                    : Icons.visibility_off)
+                Icon(
+                    cubit.viewConfirmPassword
+                        ? Icons.visibility
+                        : Icons.visibility_off,
+                    color: AppColors.primary)
               ],
             ),
           ),
           secure: !cubit.viewConfirmPassword,
           label: tr('confirm_password'),
           controller: cubit.confirmPassword,
-          inputType: TextInputType.phone,
+          inputType: TextInputType.text,
           validator: (val) => Validator.passwordConfirmation(
               password: cubit.password.text, value: val),
         ),

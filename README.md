@@ -1,16 +1,10 @@
-# hr_app
+# Kafil interview task
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+api docs : https://test.kafiil.com/docs/
+figam design : https://www.figma.com/file/XHPvICG71xYgzIpTvoONQ2/Kafiil-Test?type=design&mode=design&t=tfAKNSTDiTmoWI5X-0
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+docs : https://drive.google.com/file/d/12LLvhCFToUsXfLK-_nT2PPSev7wvszKl/view?usp=sharing
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

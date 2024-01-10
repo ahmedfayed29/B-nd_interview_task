@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:hr_app/core/caching_utils/caching_utils.dart';
 import 'package:hr_app/my_app.dart';
 
-import 'core/firebase_messaging_utils/firebase_messaging_utils.dart';
 import 'core/network_utils/network_utils.dart';
 
 void main() async {
@@ -15,7 +14,7 @@ void main() async {
     await EasyLocalization.ensureInitialized(),
     await CachingUtils.init(),
     await Firebase.initializeApp(),
-    await FirebaseMessagingUtils.instance.init(),
+    // await FirebaseMessagingUtils.instance.init(),
   ]);
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

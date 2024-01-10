@@ -36,29 +36,18 @@ dependencies:
   shared_preferences: ^2.2.2
   flutter_bloc: ^8.1.3
   fluttertoast: ^8.2.4
-  url_launcher: ^6.2.2
   path_provider: ^2.1.1
   file_picker: ^6.1.1
   flutter_svg: ^2.0.9
-  flutter_local_notifications: ^16.3.0
   easy_localization: ^3.0.3
   flutter_screenutil: ^5.9.0
   image_picker: ^1.0.5
   dio: ^5.3.2
   cached_network_image: ^3.3.1
-  timeago: ^3.6.0
-  font_awesome_flutter: ^10.6.0
-  google_maps_flutter: ^2.5.0
-  carousel_slider: ^4.2.1
-  flutter_rating_bar: ^4.0.1
-  dartz: ^0.10.1
-  neoversion: ^0.0.2
   firebase_core: ^2.24.2
-  firebase_messaging: ^14.7.9
-  pin_code_fields: ^8.0.1
+  font_awesome_flutter: ^10.6.0
   custom_cupertino_picker: ^2.0.3
   flutter_rounded_date_picker: ^3.0.4
-  infinite_scroll_pagination: ^4.0.0
   number_paginator: ^0.4.0
 
 
